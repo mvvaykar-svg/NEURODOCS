@@ -1,7 +1,5 @@
 # 🧠 NeuroDocs AI - Ask Anything From Your PDF
 
-**Built by a 15-year-old AI Engineer from India 🇮🇳**
-
 > Upload any PDF. Ask anything. Get answer in 0.3 seconds.
 > No more reading 100-page PDFs for exams.
 
@@ -47,6 +45,3 @@
 - **🔍 Source Tracking** - Batata hai jawab kaha se aaya
 
 ---
-
-### 🛠️ Tech Stack
-
