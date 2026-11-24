@@ -9,7 +9,6 @@ from langchain_core.documents import Document
 
 st.set_page_config(page_title="NeuroDocs AI", page_icon="🧠", layout="wide")
 
-# --- Prompt Builder ---
 def build_prompt(question, mode, detail, lang, extra, bot_mode, context=""):
     detail_map = {1: "Answer in 1 line", 2: "Answer in short", 3: "Answer in detail", 4: "Answer in very detail with example", 5: "Answer like a full chapter with headings"}
     lang_map = {"English": "Answer in English", "Hinglish 🇮🇳": "Answer in Hinglish - Hindi in English letters, casual like a friend", "Hindi 🇮🇳": "Answer in Hindi (Devanagari)", "Simple English": "Answer in very simple English"}
@@ -20,7 +19,6 @@ def build_prompt(question, mode, detail, lang, extra, bot_mode, context=""):
     else:
         return f"You are a RAG assistant. Answer ONLY from the given Context. If answer is not in Context, say 'Not found in your document'. Style: {mode}. Detail: {detail_text}. Language: {lang_text}. {extra}\nContext: {context}\nQuestion: {question}"
 
-# --- VOICE: Speech to Text (Groq Whisper - FREE) ---
 def transcribe_voice(audio_bytes, groq_key):
     try:
         files = {"file": ("voice.wav", audio_bytes, "audio/wav")}
@@ -34,7 +32,6 @@ def transcribe_voice(audio_bytes, groq_key):
     except Exception as e:
         return ""
 
-# --- VOICE: Text to Speech (gTTS) ---
 def speak_text(text, lang_code="en"):
     try:
         from gtts import gTTS
@@ -50,8 +47,7 @@ def speak_text(text, lang_code="en"):
 def autoplay_audio(audio_bytes):
     b64 = base64.b64encode(audio_bytes).decode()
     st.markdown(f"""<audio autoplay="true"><source src="data:audio/mp3;base64,{b64}" type="audio/mp3"></audio>""", unsafe_allow_html=True)
-
-# ========== CSS ==========
+    
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap');
@@ -83,7 +79,6 @@ div[data-testid="stChatMessage"] { background: rgba(255,255,255,0.07); border-ra
 </style>
 """, unsafe_allow_html=True)
 
-# ========== SESSION ==========
 if "chat" not in st.session_state:
     init_db()
     st.session_state.chat = load_chat()
@@ -113,7 +108,6 @@ for k in ["quiz", "flash", "mind", "summary", "simple", "notes"]:
     if k not in st.session_state:
         st.session_state[k] = False
 
-# ========== LOGIN ==========
 if not st.session_state.user:
     st.markdown("""<div class='title-box'><div class='main-title'>🧠 NeuroDocs AI</div><div class='sub-title'>Learn Anything, From Anywhere — Your Personal AI Study Buddy</div><div class='badge-row'><span class='badge'>✨ LLM BOT</span> <span class='badge-blue'>📚 RAG BOT</span> <span class='badge-purple'>🎯 6 SMART TOOLS</span></div></div>""", unsafe_allow_html=True)
     st.markdown("<div class='glass'><h3>👋 Welcome to viraj created NeuroDocs AI</h3><p>ChatGPT + Your PDF + Exam Helper — All In One App. No signup needed, just enter your name.</p></div>", unsafe_allow_html=True)
@@ -132,10 +126,8 @@ if not st.session_state.user:
     st.markdown("1️⃣ Choose Bot → 2️⃣ Tap Mic & Speak → 3️⃣ AI will answer vocally → 4️⃣ Get Quiz / Notes Instantly")
     st.stop()
 
-# ========== HEADER ==========
 st.markdown(f"""<div class='title-box'><div class='main-title'>🧠 NeuroDocs AI</div><div class='sub-title'>Welcome back, <b>{st.session_state.user}</b> 👋 — Ask <b>Anything</b> • Learn From <b>Your Files</b></div><div class='badge-row'><span class='badge'>✨ LLM BOT</span> <span class='badge-blue'>📚 RAG BOT</span> <span class='badge-purple'>🎯 6 SMART TOOLS</span> <span class='badge'>🎥 YOUTUBE</span></div></div>""", unsafe_allow_html=True)
 
-# ========== SIDEBAR ==========
 with st.sidebar:
     st.markdown(f"## 👋 Hi, {st.session_state.user}")
     if st.button("🚪 Logout"):
@@ -192,7 +184,6 @@ with st.sidebar:
 
 user_keys = {"GROQ_API_KEY": groq_k, "GOOGLE_API_KEY": gemini_k, "OPENAI_API_KEY": openai_k}
 
-# ========== MAIN TABS ==========
 tab_chat, tab_yt, tab_exam, tab_plan, tab_cards = st.tabs(["💬 Chat", "🎥 YouTube", "⏱️ Mock Test", "📅 Study Planner", "🗂️ Flashcards"])
 
 with tab_yt:
@@ -336,24 +327,23 @@ with tab_chat:
         st.toast("Notes ON")
     st.markdown(f"<p style='font-size:12px; opacity:0.7'>Bot: <b>{st.session_state.bot_mode}</b> | Source: <b>{st.session_state.doc_name}</b> | Folder: <b>{st.session_state.current_folder}</b></p>", unsafe_allow_html=True)
 
-    # ========== 🎙️ VOICE TALK MODE - DIRECT BAAT ==========
     st.markdown("""<div class='voice-box'><h3 style='margin:0'>🎙️ Voice Talk Mode</h3><p style='margin:4px 0 0 0; font-size:13px;'> press mic → speak → AI will hear + answer vocally</p></div>""", unsafe_allow_html=True)
     voice_col1, voice_col2 = st.columns([1, 1])
     with voice_col1:
-        if st.button("🎙️ Start Voice Talk", key="voice_start"):
+        if st.button("🎙️ Start Voice"):
             st.session_state.voice_on = True
-            st.toast("Voice Talk ON - Ab bolo!")
+            st.toast("Voice Talk ON - talk!")
     with voice_col2:
         if st.button("🔇 Voice OFF", key="voice_stop"):
             st.session_state.voice_on = False
             st.toast("Voice OFF")
-    st.markdown(f"**Voice Status:** {'🟢 ON - AI bolega' if st.session_state.voice_on else '🔴 OFF - Sirf text'}")
+    st.markdown(f"**Voice Status:** {'🟢 ON - AI ' if st.session_state.voice_on else '🔴 OFF - only text'}")
 
     audio = st.audio_input("🎤 speak hear - Tap to speak")
     voice_question = None
     if audio is not None:
         audio_bytes = audio.read()
-        # Same audio dubara process na ho isliye check
+        
         audio_id = hash(audio_bytes[:5000]) if len(audio_bytes) > 5000 else hash(audio_bytes)
         if st.session_state.last_voice_id != audio_id:
             st.session_state.last_voice_id = audio_id
@@ -371,7 +361,6 @@ with tab_chat:
         with st.chat_message(m["role"]):
             st.write(m["content"])
 
-    # Voice ya Text - dono se question aayega
     q = voice_question
     text_q = st.chat_input("Ask anything... or speak in mic👆")
     if text_q:
