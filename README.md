@@ -1,47 +1,67 @@
-# 🧠 NeuroDocs AI - Ask Anything From Your PDF
+🧠 NeuroDocs AI
 
-> Upload any PDF. Ask anything. Get answer in 0.3 seconds.
-> No more reading 100-page PDFs for exams.
+> *Your Universal AI Assistant. Ask Anything with LLM Bot, or Learn From Your PDF / URL / Text with RAG Bot. Quiz, Flashcards, Mind Map & Summary in 1 Click.*
 
----
+🚀 What is NeuroDocs AI?
 
-### 🚀 Live Demo - Try It Now
+*NeuroDocs AI* is a smart AI learning assistant built with *Streamlit, LangChain & Groq*.
 
-👉 **Live Website:** https://neurodocs-ai.streamlit.app
+It has 2 powerful modes:
 
-👉 **Backup Link:** https://huggingface.co/spaces/YOUR-NAME/neurodocs-ai
+🧠 LLM Bot - Ask Anything
+Like ChatGPT. Ask anything - Science, Coding, History, Business, Homework, Life.
+No file needed.
 
-> Click karo, PDF upload karo, pucho: "Summarize this in Hinglish"
-> 2 minute me samajh jaoge ye kya hai.
+📚 RAG Bot - Learn From Your File
+Upload your PDF, paste any URL, or paste any text.
+It will answer ONLY from your document.
+Perfect for exam prep.
 
----
+✨ Features
 
-### ✨ Why Is This Insane?
+- 🧠 *LLM Bot* - Unlimited General Knowledge
+- 📚 *RAG Bot* - Answer From YOUR PDF / URL / Text
+- 🎯 *Quiz Generator* - 5 MCQ in 1 Click
+- 🗂️ *Flashcards* - Q: A: Format
+- 🗺️ *Mind Map* - Tree Structure
+- 📝 *Summary* - 5 Points Summary
+- 📏 *5 Detail Levels* - 1 Line to Full Chapter
+- 🎭 *4 Learning Styles* - Normal, Like 5 Year Old, Exam Mode, Simple English
+- 💾 *Chat Memory* - Chat Saved
+- 📄 *Download Notes* - Download Full Chat as Notes
+- 💯 *100% Free* - Uses Groq Free API
 
-| Feature | NeuroDocs AI | ChatGPT |
-| :--- | :--- | :--- |
-| Answers from YOUR PDF | ✅ Yes | ❌ No |
-| Speed | ⚡ 0.3 sec | 2-3 sec |
-| Cost | 💰 $0 - FREE | $20 / month |
-| Hinglish Support | ✅ Yes | ❌ No |
-| Exam Mode | ✅ Yes | ❌ No |
-| Source Citation | ✅ Yes | ❌ No |
+🛠️ Tech Stack
 
----
+Python
+Streamlit
+LangChain
+Groq - GPT-OSS 20B / 120B
+FAISS - Vector Database
+SQLite - Chat Memory
 
-### 🎯 What It Can Do
+⚡ How To Run
 
-- **📄 PDF RAG** - Upload 5 PDFs at once, ask anything
-- **✍️ Text RAG** - Paste any notes, article, resume
-- **🌐 Website RAG** - Paste any website link, AI will read it
-- **🤖 3 AI Models** - Groq Llama 3.3 70B + Gemini 2.0 + OpenAI GPT-4o - Auto Switch
-- **🧠 4 Brain Modes:**
-    - ⚡ Fast Answer - 3 line quick answer
-    - 🧠 Deep Reasoning - Detailed with examples
-    - 📝 Exam Mode - Answer + 5 Exam Questions with Answers
-    - 👶 Explain Like I'm 5 - Super simple
-- **🌍 4 Languages** - English, Hinglish, Hindi + English Mix, Marathi Mix
-- **📥 Download Chat** - Full chat download karo
-- **🔍 Source Tracking** - Batata hai jawab kaha se aaya
+git clone https://github.com/your-username/NeuroDocs-AI
+cd NeuroDocs-AI
+pip install -r http://requirements.txt
+streamlit run http://app.py
 
----
+🔑 Get Free API Key
+
+1. Go to https://console.groq.com
+2. Create Free Account
+3. Copy Your Key gsk_...
+4. Paste in Sidebar of App
+
+🎓 Made For Students
+
+Built for students, by a student.
+Simple, Fast, Free, and Beautiful.
+Learn Anything, From Anywhere.
+
+📝 License
+
+MIT License - Free to use
+
+*Made with ❤️ by NeuroDocs AI*
