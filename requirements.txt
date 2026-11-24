@@ -12,3 +12,5 @@ beautifulsoup4
 youtube-transcript-api
 python-dotenv
 sentence-transformers
+gTTS
+requests
