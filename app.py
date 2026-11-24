@@ -116,7 +116,7 @@ for k in ["quiz", "flash", "mind", "summary", "simple", "notes"]:
 # ========== LOGIN ==========
 if not st.session_state.user:
     st.markdown("""<div class='title-box'><div class='main-title'>🧠 NeuroDocs AI</div><div class='sub-title'>Learn Anything, From Anywhere — Your Personal AI Study Buddy</div><div class='badge-row'><span class='badge'>✨ LLM BOT</span> <span class='badge-blue'>📚 RAG BOT</span> <span class='badge-purple'>🎯 6 SMART TOOLS</span></div></div>""", unsafe_allow_html=True)
-    st.markdown("<div class='glass'><h3>👋 Welcome Viraj to NeuroDocs AI</h3><p>ChatGPT + Your PDF + Exam Helper — All In One App. No signup needed, just enter your name.</p></div>", unsafe_allow_html=True)
+    st.markdown("<div class='glass'><h3>👋 Welcome to viraj created NeuroDocs AI</h3><p>ChatGPT + Your PDF + Exam Helper — All In One App. No signup needed, just enter your name.</p></div>", unsafe_allow_html=True)
     c1, c2 = st.columns([2, 1])
     with c1:
         name = st.text_input("Your Name", placeholder="e.g. Viraj")
