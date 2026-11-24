@@ -129,7 +129,7 @@ if not st.session_state.user:
     with c2:
         st.markdown("<div class='glass'>⭐ <b>Why NeuroDocs?</b><br>✅ 100% Free<br>✅ Ask Anything<br>✅ PDF + YouTube + Notes<br>✅ Quiz + Flashcards<br>✅ 🎙️ Voice Talk</div>", unsafe_allow_html=True)
     st.markdown("### 🎬 How it works - 30 Sec Demo")
-    st.markdown("1️⃣ Choose Bot → 2️⃣ Tap Mic & Speak → 3️⃣ AI Bolke Jawab Dega → 4️⃣ Get Quiz / Notes Instantly")
+    st.markdown("1️⃣ Choose Bot → 2️⃣ Tap Mic & Speak → 3️⃣ AI will answer vocally → 4️⃣ Get Quiz / Notes Instantly")
     st.stop()
 
 # ========== HEADER ==========
@@ -337,7 +337,7 @@ with tab_chat:
     st.markdown(f"<p style='font-size:12px; opacity:0.7'>Bot: <b>{st.session_state.bot_mode}</b> | Source: <b>{st.session_state.doc_name}</b> | Folder: <b>{st.session_state.current_folder}</b></p>", unsafe_allow_html=True)
 
     # ========== 🎙️ VOICE TALK MODE - DIRECT BAAT ==========
-    st.markdown("""<div class='voice-box'><h3 style='margin:0'>🎙️ Voice Talk Mode</h3><p style='margin:4px 0 0 0; font-size:13px;'>Mic dabao → Bolo → AI sunega + bolke jawab dega</p></div>""", unsafe_allow_html=True)
+    st.markdown("""<div class='voice-box'><h3 style='margin:0'>🎙️ Voice Talk Mode</h3><p style='margin:4px 0 0 0; font-size:13px;'> press mic → speak → AI will hear + answer vocally</p></div>""", unsafe_allow_html=True)
     voice_col1, voice_col2 = st.columns([1, 1])
     with voice_col1:
         if st.button("🎙️ Start Voice Talk", key="voice_start"):
@@ -349,7 +349,7 @@ with tab_chat:
             st.toast("Voice OFF")
     st.markdown(f"**Voice Status:** {'🟢 ON - AI bolega' if st.session_state.voice_on else '🔴 OFF - Sirf text'}")
 
-    audio = st.audio_input("🎤 Yaha bolo - Tap to speak")
+    audio = st.audio_input("🎤 speak hear - Tap to speak")
     voice_question = None
     if audio is not None:
         audio_bytes = audio.read()
@@ -358,14 +358,14 @@ with tab_chat:
         if st.session_state.last_voice_id != audio_id:
             st.session_state.last_voice_id = audio_id
             if not groq_k:
-                st.warning("⚠️ Voice ke liye Groq Key chahiye - Sidebar me daalo (Free)")
+                st.warning("⚠️ warning !!! put api key inside bar")
             else:
-                with st.spinner("🎧 Sun raha hu..."):
+                with st.spinner("🎧 hearing..."):
                     voice_question = transcribe_voice(audio_bytes, groq_k)
                 if voice_question:
-                    st.success(f"🎤 Tumne bola: **{voice_question}**")
+                    st.success(f"🎤 you saide: **{voice_question}**")
                 else:
-                    st.error("Aawaz samajh nahi aayi, dobara bolo")
+                    st.error("can't hear properly speak again")
 
     for m in st.session_state.chat:
         with st.chat_message(m["role"]):
@@ -373,7 +373,7 @@ with tab_chat:
 
     # Voice ya Text - dono se question aayega
     q = voice_question
-    text_q = st.chat_input("Ask anything... ya mic se bolo 👆")
+    text_q = st.chat_input("Ask anything... or speak in mic👆")
     if text_q:
         q = text_q
 
@@ -413,7 +413,7 @@ with tab_chat:
             extra = "Make clean exam notes with headings, definitions, points, formulas."
             st.session_state.notes = False
             st.session_state.analytics["notes"] += 1
-        # Voice ke liye short jawab - taaki bolne me fast ho
+            
         if voice_question:
             extra += " Keep answer SHORT, 4-5 lines only, speaking style, like talking to friend."
         prompt = build_prompt(q, mode, detail, lang, extra, st.session_state.bot_mode, context)
@@ -428,15 +428,15 @@ with tab_chat:
                     ans = f"Error: {e}. Check key."
                 st.write(ans)
                 st.caption(f"Bot: {st.session_state.bot_mode} | Model: {name} | Lang: {lang}")
-                # 🔊 AI BOLEGA - AUTO PLAY
+                
                 if st.session_state.voice_on and voice_question:
-                    with st.spinner("🔊 AI bol raha hai..."):
+                    with st.spinner("🔊 AI is thinking..."):
                         tts_lang = "hi" if "Hindi" in voice_lang or "Hinglish" in voice_lang else "en"
                         audio_out = speak_text(ans, lang_code=tts_lang)
                         if audio_out:
                             st.audio(audio_out, format="audio/mp3")
                             autoplay_audio(audio_out)
-                            st.success("🔊 AI ne bolke jawab diya - Volume ON karo!")
+                            st.success("🔊 AI answer - turn on volume!")
                 if "Q:" in ans and "A:" in ans:
                     lines = [l for l in ans.split("\n") if l.strip().startswith("Q:") or l.strip().startswith("A:")]
                     st.session_state.flash_deck.extend(lines[:10])
