@@ -49,14 +49,14 @@ Upload PDF / Paste URL / Paste Text. Answers ONLY from your file. No extra info.
 - Database: SQLite
 
 ## 📁 Project Structure
-
-🧠 ├── http://app.py
+NEURODOCS 
+├── http://app.py
 ├── http://requirements.txt
 ├── http://README.md
 ├── src/
-│   ├── http://llm.py
-│   ├── http://brain.py
-│   └── http://memory.py
+       ├── http://llm.py
+       ├── http://brain.py
+       └── http://memory.py
 
 ##⚙️ How It Works
 - 1. User Selects Bot Mode
