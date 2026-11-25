@@ -47,49 +47,49 @@ def autoplay_audio(audio_bytes):
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-.stApp { background: rgb(10, 25, 47) !important; color: rgb(241, 245, 249) !important; font-family: 'Inter', sans-serif; }
+.stApp { background: rgb(2, 6, 23) !important; color: rgb(219, 234, 254) !important; font-family: 'Inter', sans-serif; }
 h1,h2,h3 { color: rgb(255, 255, 255) !important; font-weight: 700 !important; }
-p, span, label { color: rgb(203, 213, 225) !important; }
+p, span, label { color: rgb(219, 234, 254) !important; }
 .block-container { padding-top: 0rem !important; max-width: 100% !important; }
-.title-box { margin-top: 58px !important; padding: 16px 12px 14px 12px !important; background: linear-gradient(135deg, rgb(135, 206, 235) 0%, rgb(0, 255, 255) 30%, rgb(255, 235, 59) 65%, rgb(255, 215, 0) 100%) !important; border-radius: 18px !important; text-align: center !important; box-shadow: 0 8px 24px rgba(0,255,255,0.25); }
-.main-title { font-size: 30px !important; font-weight: 800 !important; color: rgb(10, 25, 47) !important; margin: 0px !important; line-height: 1.1 !important; }
-.sub-title { font-size: 13px !important; color: rgb(30, 41, 59) !important; font-weight: 600 !important; margin-top: 4px; }
-.glass { background: rgb(135, 206, 235) !important; border-radius: 14px; padding: 12px !important; margin-bottom: 10px !important; }
-.glass h3, .glass p, .glass span { color: rgb(10, 25, 47) !important; }
-.glass-big { background: rgb(0, 255, 255) !important; border-radius: 14px; padding: 12px !important; margin-bottom: 10px; }
-.glass-big h3, .glass-big p { color: rgb(10, 25, 47) !important; }
-.glass-amber { background: rgb(255, 235, 59) !important; border-radius: 14px; padding: 12px !important; margin-bottom: 10px; }
-.glass-amber p, .glass-amber h3, .glass-amber span { color: rgb(10, 25, 47) !important; }
-.glass-mint { background: rgb(76, 175, 80) !important; border-radius: 14px; padding: 12px !important; margin-bottom: 10px; }
-.glass-mint p, .glass-mint h3, .glass-mint span { color: rgb(255, 255, 255) !important; }
-.voice-box { background: rgb(255, 215, 0) !important; border-radius: 12px; padding: 10px !important; text-align: center; margin-bottom: 10px; }
-.voice-box b, .voice-box p { color: rgb(10, 25, 47) !important; font-size: 13px !important; }
-.stButton>button { background: rgb(255, 235, 59) !important; color: rgb(10, 25, 47) !important; font-weight: 700; border-radius: 12px; border: none !important; padding: 8px 10px !important; font-size: 13px !important; width: 100%; }
-.quick-row div[data-testid="column"] .stButton>button { padding: 7px 4px !important; font-size: 12px !important; min-height: 32px !important; background: rgb(0, 255, 255) !important; color: rgb(10, 25, 47) !important; border: none !important; }
-.stTextInput>div>div>input, .stTextArea>div>div>textarea { background: rgb(30, 41, 59) !important; color: white !important; border-radius: 10px !important; border: 1px solid rgb(135, 206, 235) !important; }
-[data-testid="stSidebar"] { background: rgb(8, 20, 38) !important; border-right: 1px solid rgb(30, 41, 59); }
-div[data-testid="stChatMessage"] { background: rgb(135, 206, 235) !important; border-radius: 12px; padding: 10px !important; }
-div[data-testid="stChatMessage"] p { color: rgb(10, 25, 47) !important; }
-.yt-big { background: linear-gradient(135deg, rgb(135, 206, 235), rgb(255, 235, 59)) !important; border-radius: 14px; padding: 12px !important; margin-bottom: 10px; }
-.yt-big h2 { font-size: 18px !important; color: rgb(10, 25, 47) !important; margin: 0px !important; }
-.yt-big p { color: rgb(30, 41, 59) !important; font-size: 12.5px !important; margin: 2px 0 0 0 !important; }
-.yt-card { background: rgb(255, 255, 255) !important; border: 2px solid rgb(0, 255, 255) !important; border-radius: 12px; padding: 10px 12px !important; margin-bottom: 8px; }
-.yt-card h3 { font-size: 14px !important; margin: 0 0 4px 0 !important; color: rgb(10, 25, 47) !important; }
-.yt-card p { font-size: 12px !important; margin: 0px !important; color: rgb(51, 65, 85) !important; }
-.login-hero { margin-top: 40px; padding: 28px 20px 22px 20px; background: linear-gradient(135deg, rgb(135, 206, 235) 0%, rgb(0, 255, 255) 30%, rgb(255, 235, 59) 55%, rgb(255, 215, 0) 80%, rgb(76, 175, 80) 100%); border-radius: 22px; text-align: center; }
-.login-hero h1 { font-size: 42px !important; color: rgb(10, 25, 47) !important; margin: 0px !important; line-height: 1.1; }
-.login-hero p { font-size: 16px !important; color: rgb(30, 41, 59) !important; font-weight: 600; margin-top: 8px; }
-.login-card { background: rgb(255, 255, 255); border: 2px solid rgb(135, 206, 235); border-radius: 18px; padding: 22px; margin-top: 14px; }
-.login-card h2 { font-size: 22px !important; margin: 0 0 6px 0 !important; color: rgb(10, 25, 47) !important; }
-.login-card p { color: rgb(51, 65, 85) !important; }
-.stat-green { background: rgb(76, 175, 80) !important; border-radius: 14px; padding: 12px !important; }
+.title-box { margin-top: 58px !important; padding: 16px 12px 14px 12px !important; background: linear-gradient(135deg, rgb(2, 6, 23) 0%, rgb(30, 64, 175) 55%, rgb(0, 210, 255) 100%) !important; border: 2px solid rgb(0, 210, 255) !important; border-radius: 18px !important; text-align: center !important; box-shadow: 0 0 22px rgba(0,210,255,0.35); }
+.main-title { font-size: 30px !important; font-weight: 800 !important; color: rgb(255, 255, 255) !important; margin: 0px !important; line-height: 1.1 !important; }
+.sub-title { font-size: 13px !important; color: rgb(191, 219, 254) !important; font-weight: 600 !important; margin-top: 4px; }
+.glass { background: rgb(10, 25, 60) !important; border: 2px solid rgb(30, 64, 175) !important; border-radius: 14px; padding: 12px !important; margin-bottom: 10px !important; box-shadow: 0 4px 16px rgba(30,64,175,0.4); }
+.glass h3, .glass p, .glass span { color: rgb(219, 234, 254) !important; }
+.glass-big { background: rgb(30, 64, 175) !important; border: 2px solid rgb(0, 210, 255) !important; border-radius: 14px; padding: 12px !important; margin-bottom: 10px; box-shadow: 0 0 16px rgba(0,210,255,0.3); }
+.glass-big h3, .glass-big p { color: rgb(255, 255, 255) !important; }
+.glass-amber { background: rgb(255, 200, 0) !important; border: 2px solid rgb(255, 255, 255) !important; border-radius: 14px; padding: 12px !important; margin-bottom: 10px; }
+.glass-amber p, .glass-amber h3, .glass-amber span { color: rgb(2, 6, 23) !important; }
+.glass-mint { background: rgb(10, 25, 60) !important; border: 2px solid rgb(0, 210, 255) !important; border-radius: 14px; padding: 12px !important; margin-bottom: 10px; }
+.glass-mint p, .glass-mint h3, .glass-mint span { color: rgb(219, 234, 254) !important; }
+.voice-box { background: rgb(255, 200, 0) !important; border: 2px solid rgb(30, 64, 175) !important; border-radius: 12px; padding: 10px !important; text-align: center; margin-bottom: 10px; }
+.voice-box b, .voice-box p { color: rgb(2, 6, 23) !important; font-size: 13px !important; }
+.stButton>button { background: rgb(0, 210, 255) !important; color: rgb(2, 6, 23) !important; font-weight: 800; border-radius: 12px; border: 2px solid rgb(255, 255, 255) !important; padding: 8px 10px !important; font-size: 13px !important; width: 100%; }
+.quick-row div[data-testid="column"] .stButton>button { padding: 7px 4px !important; font-size: 12px !important; min-height: 32px !important; background: rgb(30, 64, 175) !important; color: rgb(255, 255, 255) !important; border: 2px solid rgb(0, 210, 255) !important; }
+.stTextInput>div>div>input, .stTextArea>div>div>textarea { background: rgb(10, 25, 60) !important; color: white !important; border-radius: 10px !important; border: 2px solid rgb(0, 210, 255) !important; }
+[data-testid="stSidebar"] { background: rgb(2, 6, 23) !important; border-right: 2px solid rgb(30, 64, 175); }
+div[data-testid="stChatMessage"] { background: rgb(10, 25, 60) !important; border: 2px solid rgb(30, 64, 175) !important; border-radius: 12px; padding: 10px !important; }
+div[data-testid="stChatMessage"] p { color: rgb(219, 234, 254) !important; }
+.yt-big { background: linear-gradient(135deg, rgb(2, 6, 23), rgb(30, 64, 175)) !important; border: 2px solid rgb(0, 210, 255) !important; border-radius: 14px; padding: 12px !important; margin-bottom: 10px; }
+.yt-big h2 { font-size: 18px !important; color: rgb(255, 255, 255) !important; margin: 0px !important; }
+.yt-big p { color: rgb(191, 219, 254) !important; font-size: 12.5px !important; margin: 2px 0 0 0 !important; }
+.yt-card { background: rgb(10, 25, 60) !important; border: 2px solid rgb(0, 210, 255) !important; border-radius: 12px; padding: 10px 12px !important; margin-bottom: 8px; box-shadow: 0 4px 14px rgba(0,210,255,0.2); }
+.yt-card h3 { font-size: 14px !important; margin: 0 0 4px 0 !important; color: rgb(255, 255, 255) !important; }
+.yt-card p { font-size: 12px !important; margin: 0px !important; color: rgb(191, 219, 254) !important; }
+.login-hero { margin-top: 40px; padding: 28px 20px 22px 20px; background: linear-gradient(135deg, rgb(2, 6, 23) 0%, rgb(30, 64, 175) 55%, rgb(0, 210, 255) 100%); border: 2px solid rgb(0, 210, 255); border-radius: 22px; text-align: center; }
+.login-hero h1 { font-size: 42px !important; color: rgb(255, 255, 255) !important; margin: 0px !important; line-height: 1.1; }
+.login-hero p { font-size: 16px !important; color: rgb(191, 219, 254) !important; font-weight: 600; margin-top: 8px; }
+.login-card { background: rgb(10, 25, 60); border: 2px solid rgb(0, 210, 255); border-radius: 18px; padding: 22px; margin-top: 14px; }
+.login-card h2 { font-size: 22px !important; margin: 0 0 6px 0 !important; color: rgb(255, 255, 255) !important; }
+.login-card p { color: rgb(191, 219, 254) !important; }
+.stat-green { background: rgb(10, 25, 60) !important; border: 2px solid rgb(0, 210, 255) !important; border-radius: 14px; padding: 12px !important; }
 .stat-green h3, .stat-green p { color: rgb(255, 255, 255) !important; }
-.stat-yellow { background: rgb(255, 235, 59) !important; border-radius: 14px; padding: 12px !important; }
-.stat-yellow h3, .stat-yellow p { color: rgb(10, 25, 47) !important; }
-.stat-sky { background: rgb(135, 206, 235) !important; border-radius: 14px; padding: 12px !important; }
-.stat-sky h3, .stat-sky p { color: rgb(10, 25, 47) !important; }
-.stat-cyan { background: rgb(0, 255, 255) !important; border-radius: 14px; padding: 12px !important; }
-.stat-cyan h3, .stat-cyan p { color: rgb(10, 25, 47) !important; }
+.stat-yellow { background: rgb(255, 200, 0) !important; border: 2px solid rgb(2, 6, 23) !important; border-radius: 14px; padding: 12px !important; }
+.stat-yellow h3, .stat-yellow p { color: rgb(2, 6, 23) !important; }
+.stat-sky { background: rgb(30, 64, 175) !important; border: 2px solid rgb(0, 210, 255) !important; border-radius: 14px; padding: 12px !important; }
+.stat-sky h3, .stat-sky p { color: rgb(255, 255, 255) !important; }
+.stat-cyan { background: rgb(0, 210, 255) !important; border: 2px solid rgb(255, 255, 255) !important; border-radius: 14px; padding: 12px !important; }
+.stat-cyan h3, .stat-cyan p { color: rgb(2, 6, 23) !important; }
 </style>
 """, unsafe_allow_html=True)
 if "chat" not in st.session_state:
