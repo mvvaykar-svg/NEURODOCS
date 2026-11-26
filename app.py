@@ -396,7 +396,7 @@ with tab_cards:
         st.info("No cards yet in NeuroDocs AI. Go to Chat, tap Create Cards and type a topic.")
         st.markdown("<div class='glass'><div class='brand-mini-dark'>NEURODOCS</div><h3>Example Card - NeuroDocs AI</h3><p>Q: What is Photosynthesis?<br>A: Process by which plants make food using sunlight<br><br>This is how NeuroDocs AI flashcards look. Simple, short, easy to remember.</p></div>", unsafe_allow_html=True)
     st.caption(f"Total Cards in NeuroDocs AI: {len(st.session_state.flash_deck)}")
-    with tab_chat:
+with tab_chat:
     auto_new_chat()
     st.markdown("<div class='bot-box'><div class='brand-mini-dark'>NEURODOCS</div><h3>Choose Your Bot in NeuroDocs AI</h3><p><b>LLM Bot:</b> Ask anything, no file needed. Best for learning new topics, quiz, notes, summary.<br><b>RAG Bot:</b> Ask only from your PDF or YouTube video. Best for exam, document questions, exact answers from your file.<br>Tap one below, NeuroDocs AI will switch instantly.</p></div>", unsafe_allow_html=True)
     bot_choice = st.segmented_control("Bot", ["LLM Bot", "RAG Bot"], selection_mode="single", default=st.session_state.bot_seg, key="bot_seg")
