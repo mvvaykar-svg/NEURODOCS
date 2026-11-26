@@ -126,7 +126,7 @@ def save_current_session():
     if st.session_state.chat:
         title = st.session_state.chat[0]["content"][:35] if st.session_state.chat else "New Chat"
         if st.session_state.current_session_idx is not None and st.session_state.current_session_idx < len(st.session_state.chat_sessions):
-            st.session_state.chat_sessions[st.session_state.current_session_idx] = {"title": title, "messages": list(st.session_state.chat)}
+           st.session_state.chat_sessions[st.session_state.current_session_idx] = {"title": title, "messages": list(st.session_state.chat)}
         else:
             st.session_state.chat_sessions.append({"title": title, "messages": list(st.session_state.chat)})
             st.session_state.current_session_idx = len(st.session_state.chat_sessions)-1
